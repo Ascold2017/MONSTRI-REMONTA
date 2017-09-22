@@ -1,0 +1,62 @@
+@import "_fonts";
+@import "../libs/css-reset/reset";
+@import "../libs/slick-carousel/slick/slick.scss";
+@import "../libs/slick-carousel/slick/slick-theme.scss";
+@import "../libs/fancybox/dist/jquery.fancybox.css";
+@import "../libs/slicknav/dist/slicknav";
+@import "../libs/font-awesome/scss/font-awesome";
+
+
+//BASE BEGIN
+html, body{
+	height: 100%;
+}
+a, button { text-decoration: none; color: inherit; }
+.slick-slide{outline: 0;}
+
+body{
+	font-size: 16px;
+	position: relative;
+	line-height: 1.5;
+	font-family: Arial, sans-serif;
+	overflow-x: hidden;
+	opacity: 1;
+}
+
+.img-responsive{
+	display: block;
+	max-width: 100%;
+	height: auto;
+} 
+
+.wrapper{
+	max-width:1140px;
+	width:100%; 
+	margin: 0 auto;
+	padding: 0 15px;
+	box-sizing: border-box;
+}
+
+.button{
+    border-radius: 4px;
+    border: 3px solid black;
+    padding:0 45px;
+    color: #fff;
+    text-transform: uppercase;
+    display:table;
+}
+.section_title{
+    
+}
+//BASE END
+//HEADER BEGIN
+.header{
+	background-size:cover;
+    background-position: center;
+	width:100%;
+}
+
+
+
+@import "_media"; 
+
