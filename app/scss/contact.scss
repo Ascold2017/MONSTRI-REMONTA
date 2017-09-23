@@ -6,7 +6,7 @@
     box-sizing: border-box;
 }
 
-.main{
+.main {
     margin-top: calc(266px - 620px);
 }
 
@@ -22,21 +22,35 @@
     padding-top: 27px;
 }
 
-.contact_map{
+.contact_map {
     margin-top: 30px;
     background-image: url(img/mapwood.png);
-    width: 100%;
     background-size: cover;
     padding: 30px 36px 35px 32px;
 }
+
 .map {
-	display: block;
     width: 100%;
     height: 429px;
-    
+    position: relative;
+    display: block;
+    &::before{
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 429px;
+        z-index: 999;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        box-shadow:  inset 0 0 4px 1px rgba(21, 23, 24, 0.77);
+        
+    }
 }
+
 .map_container {
-	box-shadow: 3px 2px 5px 1px rgba(255, 255, 255, 0.7), inset 0 0 4px 1px rgba(21, 23, 24, 0.77);
+    box-shadow: 3px 2px 5px 1px rgba(255, 255, 255, 0.7);
     border-radius: 8px;
     overflow: hidden;
 }
