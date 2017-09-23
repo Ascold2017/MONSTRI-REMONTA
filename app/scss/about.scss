@@ -1,0 +1,55 @@
+.about_text {
+    max-width: 764px;
+    width: 100%;
+    margin: 0 auto;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20.01px;
+    /* Text style for "Вы устали" */
+    letter-spacing: -0.12px;
+    text-align: center;
+    padding-top: 43px;
+}
+.home{
+    padding-bottom: 64px;
+}
+.main {
+    margin-top: -355px;
+}
+
+.features_container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 58px;
+}
+.features__item {
+	width: calc(100% / 6);
+    padding: 0 20px;
+    box-sizing: border-box;
+    &:first-child{
+        padding-left: 0;
+    }
+    &:last-child{
+        padding-right: 0;
+    }
+}
+.features__icon {
+    margin: 0 auto;
+    display: block;
+}
+
+.features__title {
+    margin-top: 22px;
+    text-align: center;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 20.01px;
+    /* Text style for "Вы можете" */
+    letter-spacing: -0.12px;
+}
+
+@import "about_media";

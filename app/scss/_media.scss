@@ -1,40 +1,61 @@
-
-
 /*==========  Desktop First  ==========*/
 
+
 /* Large Devices, Wide Screens */
-@media only screen and (max-width : 1200px){
-    
-}
-	/**/
+
+@media only screen and (max-width: 1200px) {}
+
+
+/**/
 
 
 /* Medium Devices, Desktops */
-@media only screen and (max-width : 992px){
-    
-    }
-	/**/
+
+@media only screen and (max-width: 992px) {}
+
+
+/**/
 
 
 /* Small Devices, Tablets */
-@media only screen and (max-width : 768px){
-    
+
+@media only screen and (max-width: 768px) {
+    .footer_container {
+        flex-direction: column;
     }
-	/**/
+    .footer_nav,
+    .footer_social {
+        margin-top: 20px;
+    }
+    .footer_nav {
+        margin: 20px auto 0;
+    }
+}
+
+
+/**/
 
 
 /* Extra Small Devices, Phones */
-@media only screen and (max-width : 480px){
-    
-    }
-	/**/
+
+@media only screen and (max-width: 480px) {}
+
+
+/**/
 
 
 /* Custom, iPhone Retina */
-@media only screen and (max-width : 320px){
-    
+
+@media only screen and (max-width: 390px) {
+    .footer_menu_list {
+        flex-direction: column;
     }
-	/**/
+    .footer_menu__link {
+        text-align: center;
+        display: block;
+        line-height: 30px;
+    }
+}
 
 
-
+/**/
