@@ -1,0 +1,16 @@
+@media screen and (max-width:900px) {
+    .building_container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .building__item.first,
+    .building__item.second,
+    .building__item.third {
+        width: 70%;
+        padding-top: 30px;
+    }
+    .building__img {
+	position: static;
+        transform: none;
+}
+}
