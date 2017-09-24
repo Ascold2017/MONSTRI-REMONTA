@@ -1,6 +1,25 @@
 @media screen and (max-width:1050px) {
-    .calculator_price__item {
-        grid-template-columns: 20% 10% 10% 30% 30%;
+    .price__N {
+        width: 2%;
+    }
+    .price__title {
+        width: 18%;
+    }
+    .price__em {
+        width: 10%;
+    }
+    .price__price {
+        width: 10%;
+    }
+    .price__counter {
+        width: 30%;
+        text-align: center;
+    }
+    .price__total {
+        width: 30%;
+    }
+    .form_counter {
+        margin: 0 auto;
     }
 }
 
@@ -17,8 +36,51 @@
     }
 }
 
-@media screen and (max-width:540px) {
+@media screen and (max-width:630px) {
     .calculator_price__item {
-        grid-template-columns: 20% 10% 10% 30% 30%;
+        &.title {
+            display: none!important;
+        }
+        margin-bottom: 30px;
+    }
+    .price__N {
+        display: none;
+    }
+    .price__title {
+        width: 100%;
+        text-align: center;
+    }
+    .price__em {
+        width: 50%;
+        text-align: center;
+    }
+    .price__price {
+        width: 50%;
+        text-align: center;
+    }
+    .price__counter {
+        width: 50%;
+        text-align: center;
+    }
+    .price__total {
+        width: 50%;
+        text-align: center;
+    }
+    .price_sum_container {
+        flex-direction: column;
+        align-items: center;
+        margin-right: 0;
+    }
+}
+
+@media screen and (max-width:350px) {
+    .price__counter {
+        width: 100%;
+    }
+    .price__total {
+        width: 100%;
+    }
+    .calculator_price__item {
+        margin-bottom: 30px;
     }
 }
