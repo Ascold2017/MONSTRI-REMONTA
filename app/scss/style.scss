@@ -207,9 +207,9 @@ body {
     line-height: 66px;
     padding: 0 10px;
 }
+
 .main {
     margin-top: -183px;
-    
 }
 
 .home {
@@ -268,6 +268,41 @@ body {
 .footer_socials {
     display: flex;
     justify-content: space-between;
+}
+
+.header_mobile_nav {
+    display: none;
+    position: relative;
+    z-index: 999;
+    margin-top: 20px;
+}
+.mobile_menu_list {
+	display: none;
+}
+.mobile_menu__item {
+    background-image: url(img/button_dop.png);
+    width: 253px;
+    height: 48px;
+    background-position: center;
+    background-size: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+.mobile_menu__link {
+    display: block;
+    text-align: center;
+    color: #000000;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 48px;
+    /* Text style for "ДОПОЛНИТЕЛ" */
+    letter-spacing: -0.12px;
+    &:hover, &:focus{
+        text-shadow: 0 0 50px rgba(243, 200, 48, 1);
+        color: #ffffff;
+    }
 }
 
 @import "_media";

@@ -1,22 +1,21 @@
 
 
-.home_container {
-    display: flex;
-    justify-content: space-between;
+.home_slider {
+    position: relative;
+    top: -260px;
+    margin-bottom: -260px;
 }
 
-.home__item {
+.home__slide {
     position: relative;
     padding-top: 56px;
     width: 33%;
     max-width: 230px;
+    margin: 0 0.4% 0;
 }
 
 .home__img {
-    position: absolute;
-    top: -249px;
-    left: 50%;
-    transform: translateX(-50%);
+    height: 300px;
 }
 
 .construction_container {

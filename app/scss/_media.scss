@@ -16,6 +16,25 @@
 
 /**/
 
+@media only screen and (max-width: 700px) {
+    .header_nav {
+        display: none;
+    }
+    .header_logo {
+        background-size: contain;
+        background-position: unset;
+        padding-left: 35px;
+        padding-right: 35px;
+    }
+    .logo__img {
+        display: block;
+        margin: 0 auto;
+    }
+    .header_mobile_nav {
+        display: block;
+    }
+}
+
 
 /* Small Devices, Tablets */
 
@@ -38,6 +57,21 @@
 
 
 /**/
+
+@media only screen and (max-width: 550px) {
+    .logo__title {
+        font-size: 10px;
+    }
+    .header_logo {
+        padding-top: 20px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .header_logo {
+        background-size: cover;
+    }
+}
 
 
 /* Extra Small Devices, Phones */
