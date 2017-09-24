@@ -15,13 +15,15 @@ $(document).ready(function () {
         centerMode: true,
         variableWidth: true,
         responsive: [
+            
             {
-                breakpoint: 1100,
+                breakpoint: 768,
                 settings: {
-                    slidesToShow: 2,
-                    centerMode: false,
+                    slidesToShow: 1,
+                    centerMode: true,
                 },
             },
+            
         ],
     })
 });
