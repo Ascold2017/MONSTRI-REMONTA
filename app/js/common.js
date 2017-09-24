@@ -46,17 +46,27 @@ $(document).ready(function () {
     //Счетчик
     $(function () {
         $('.form_counter__button.less').click(function () {
-            console.log("click");
+            var price = $(this).closest(".price__counter").parent().find(".price__price").text();
+            var sum = $(this).closest(".price__counter").parent().find(".price__total .form_counter__input");
+            console.log(sum);
+            console.log(price);
             var $input = $(this).parent().find('.form_counter__input');
             var count = parseInt($input.val()) - 1;
             count = count < 1 ? 1 : count;
             $input.val(count);
+            sum.val(count * price);
+            sum.change();
             $input.change();
             return false;
         });
         $('.form_counter__button.more').click(function () {
+            var price = $(this).closest(".price__counter").parent().find(".price__price").text();
+            var sum = $(this).closest(".price__counter").parent().find(".price__total .form_counter__input");
             var $input = $(this).parent().find('.form_counter__input');
-            $input.val(parseInt($input.val()) + 1);
+            var count = parseInt($input.val()) + 1;
+             sum.val(count * price);
+             $input.val(count);
+            sum.change();
             $input.change();
             return false;
         });
