@@ -68,9 +68,27 @@
             text-align: center;
         }
     }
-    display: grid;
-    grid-template-columns: 2% 38% 15% 15% 15% 15%;
+    display: flex;
+    flex-wrap: wrap;
     margin-bottom: 4px;
+}
+.price__N{
+    width: 2%;
+}
+.price__title{
+     width: 38%;
+}
+.price__em{
+     width: 15%;
+}
+.price__price{
+    width: 15%;
+}
+.price__counter{
+    width: 15%;
+}
+.price__total{
+    width: 15%;
 }
 
 .form_counter {
