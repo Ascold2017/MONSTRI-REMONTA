@@ -1,0 +1,15 @@
+@media screen and (max-width:1050px) {
+    .calculator_price__item {
+        grid-template-columns: 2% 18% 10% 10% 30% 30%;
+    }
+}
+
+
+@media screen and (max-width:992px){
+    .price_show__link, .price_delete__link {
+        margin: 0 auto;
+    }
+    .price_sum_container {
+	justify-content: center;
+}
+}
