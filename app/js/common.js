@@ -25,5 +25,30 @@ $(document).ready(function () {
             },
             
         ],
-    })
+    });
+    
+    $(".calculator_price").each(function(){
+        $(this).find(".calculator_price__item").slice(0, 6).css({display: 'flex'});
+    });
+    $(".price_show__link").on('click', function(e){
+        e.preventDefault();
+         $(this).closest(".calculator_price").find(".calculator_price__item").css({display: 'flex'});
+    });
+     $(function(){
+        $('.form_counter__button.less').click(function () {
+                var $input = $(this).parent().find('.form_counter__input');
+                var count = parseInt($input.val()) - 1;
+                count = count < 1 ? 1 : count;
+                $input.val(count);
+                $input.change();
+                return false;
+            });
+            $('.form_counter__button.more').click(function () {
+                var $input = $(this).parent().find('.form_counter__input');
+                $input.val(parseInt($input.val()) + 1);
+                $input.change();
+                return false;
+            });
+    });
+    
 });
