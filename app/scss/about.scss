@@ -38,6 +38,10 @@
 .features__icon {
     margin: 0 auto;
     display: block;
+    transition: all 0.3s ease;
+    &:hover{
+        transform: scale(1.2);
+    }
 }
 
 .features__title {
