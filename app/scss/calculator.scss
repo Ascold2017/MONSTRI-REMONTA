@@ -135,28 +135,43 @@
         line-height: 31px;
         /* Text style for "Наименован" */
         letter-spacing: -0.12px;
-         margin-bottom: 0px;
+        margin-bottom: 0px;
     }
-    display: none; //flex;
     flex-wrap: wrap;
     margin-bottom: 4px;
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    transition: all 0.5s;
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        max-height: 40px;
+        display: flex;
+    }
 }
-.price__N{
+
+.price__N {
     width: 2%;
 }
-.price__title{
-     width: 38%;
+
+.price__title {
+    width: 38%;
 }
-.price__em{
-     width: 15%;
-}
-.price__price{
+
+.price__em {
     width: 15%;
 }
-.price__counter{
+
+.price__price {
     width: 15%;
 }
-.price__total{
+
+.price__counter {
+    width: 15%;
+}
+
+.price__total {
     width: 15%;
 }
 
@@ -166,7 +181,6 @@
     display: flex;
     padding: 4px 6px 4px 3px;
     box-sizing: border-box;
-    
 }
 
 .form_counter__button {
@@ -180,6 +194,9 @@
     color: #000000;
     letter-spacing: -0.24px;
     outline: 0;
+    &.more {
+        font-size: 20px;
+    }
 }
 
 .form_counter__input {
@@ -194,28 +211,30 @@
 }
 
 .price__counter {
-	margin: 0 auto;
+    margin: 0 auto;
 }
+
 .price__total {
-	text-align: center;
+    text-align: center;
     margin: 0 auto;
 }
 
 .price_sum_container {
-	display: flex;
+    display: flex;
     justify-content: flex-end;
     margin-right: 30px;
     margin-top: 39px;
 }
+
 .price_sum__title {
-	color: #fefefe;
-font-family: Arial;
-font-size: 12px;
-font-weight: 400;
-line-height: 31px;
-/* Text style for "Стоимость" */
-letter-spacing: -0.12px;
-padding-right: 9px;
+    color: #fefefe;
+    font-family: Arial;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 31px;
+    /* Text style for "Стоимость" */
+    letter-spacing: -0.12px;
+    padding-right: 9px;
 }
 
 .calculator_sendform {

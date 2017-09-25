@@ -68,9 +68,19 @@
             text-align: center;
         }
     }
-    display: none; //flex;
+    //display: none; //flex;
     flex-wrap: wrap;
     margin-bottom: 4px;
+    opacity: 0;
+    visibility: hidden;
+    max-height: 0;
+    transition: all 0.5s;
+    &.active {
+        opacity: 1;
+        visibility: visible;
+        max-height: 40px;
+        display: flex;
+    }
 }
 .price__N{
     width: 2%;
@@ -111,6 +121,9 @@
     color: #000000;
     letter-spacing: -0.24px;
     outline: 0;
+    &.more{
+        font-size: 20px;
+    }
 }
 
 .form_counter__input {

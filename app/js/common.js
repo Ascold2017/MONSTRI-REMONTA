@@ -18,7 +18,13 @@ $(document).ready(function () {
         centerPadding: 60,
         variableWidth: true,
         responsive: [
-
+            {
+                breakpoint: 1100,
+                settings: {
+                    slidesToShow: 2,
+                    centerMode: false,
+                },
+            },
             {
                 breakpoint: 768,
                 settings: {
@@ -32,15 +38,11 @@ $(document).ready(function () {
     //Lazy load выпадающий список
     $(function () {
         $(".calculator_price").each(function () {
-            $(this).find(".calculator_price__item").slice(0, 6).css({
-                display: 'flex'
-            });
+            $(this).find(".calculator_price__item").slice(0, 6).addClass("active");
         });
         $(".price_show__link").on('click', function (e) {
             e.preventDefault();
-            $(this).closest(".calculator_price").find(".calculator_price__item").css({
-                display: 'flex'
-            });
+            $(this).closest(".calculator_price").find(".calculator_price__item").addClass("active");
         });
     })
 
@@ -73,7 +75,7 @@ $(document).ready(function () {
             total_input.val(sum_total);
             total_input.change();
         }
-        $(".form_counter__input").on('keyup',  function(){
+        $(".form_counter__input").on('keyup', function () {
             $(this).change();
             sumCounter($(this), $(this).val());
         })
