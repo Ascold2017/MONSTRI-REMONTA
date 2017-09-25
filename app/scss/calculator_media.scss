@@ -1,3 +1,9 @@
+@media screen and (max-width: 1200px) {
+    .calculator_list_container {
+        background-size: 100% 100%;
+    }
+}
+
 @media screen and (max-width:1050px) {
     .price__N {
         width: 2%;
@@ -71,6 +77,28 @@
         align-items: center;
         margin-right: 0;
     }
+    
+    .calculator_sendform {
+	background-size: 100% 100%;
+}
+}
+
+@media screen and (max-width:450px) {
+    .calculator_left {
+        width: 100%;
+        .home__img {
+            width: 100%;
+            top: auto;
+            bottom: 40px;
+        }
+    }
+    .calculator_right {
+	margin-top: 30px;
+        
+}
+    .calculator_list_container {
+	position: static;
+}
 }
 
 @media screen and (max-width:350px) {
