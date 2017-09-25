@@ -71,6 +71,7 @@ body {
     background-position: center top;
     width: 100%;
     padding-bottom: 620px;
+    overflow: hidden;
 }
 
 .header_logo_container {
@@ -103,7 +104,9 @@ body {
 .logo__shadow {
     position: absolute;
     background-image: url(img/logoshadow.png);
-    width: 728px;
+    background-repeat: no-repeat;
+    left: 0;
+    right: -150px;
     height: 339px;
 }
 
@@ -165,10 +168,11 @@ body {
 .nav__shadow {
     position: absolute;
     background-image: url(img/menushadow.png);
-    width: 1208px;
+   
     height: 517px;
     top: 0;
     left: 150px;
+    right: 0;
 }
 
 .header_menu_list {

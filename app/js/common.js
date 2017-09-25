@@ -15,6 +15,7 @@ $(document).ready(function () {
         dots: false,
         arrows: false,
         centerMode: true,
+        centerPadding: 60,
         variableWidth: true,
         responsive: [
 
