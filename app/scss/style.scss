@@ -195,7 +195,6 @@ body {
         background-position: center;
         width: 91px;
         height: 131px;
-        transition: background-image, width 0.5s ease;
     }
     &.active::after,
     &:hover:after {
