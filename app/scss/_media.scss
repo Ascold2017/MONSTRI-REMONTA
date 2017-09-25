@@ -20,15 +20,15 @@
 
 /**/
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 720px) {
     .header_nav {
         display: none;
     }
     .header_logo {
         background-size: contain;
         background-position: unset;
-        padding-left: 35px;
-        padding-right: 35px;
+        padding-left: 45px;
+        padding-right: 45px;
     }
     .logo__img {
         display: block;

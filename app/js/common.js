@@ -18,13 +18,7 @@ $(document).ready(function () {
         centerPadding: 60,
         variableWidth: true,
         responsive: [
-            {
-                breakpoint: 1100,
-                settings: {
-                    slidesToShow: 2,
-                    centerMode: false,
-                },
-            },
+           
             {
                 breakpoint: 768,
                 settings: {
