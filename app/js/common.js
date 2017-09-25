@@ -73,6 +73,10 @@ $(document).ready(function () {
             total_input.val(sum_total);
             total_input.change();
         }
+        $(".form_counter__input").on('keyup',  function(){
+            $(this).change();
+            sumCounter($(this), $(this).val());
+        })
         //Клик уменьшить кол-во
         $('.form_counter__button.less').click(function () {
 
