@@ -12,5 +12,15 @@
     .building__img {
 	position: static;
         transform: none;
+        &:hover{
+            transform: none;
+        }
+}
+}
+
+@media screen and (max-width:600px) {
+    .building_sendform {
+	background-size: 100% 100%;
+        width: 90%;
 }
 }
