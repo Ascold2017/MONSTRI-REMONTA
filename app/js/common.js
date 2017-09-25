@@ -45,32 +45,59 @@ $(document).ready(function () {
 
     //Счетчик
     $(function () {
+
+
+        var sumCounter = function ($this, count) {
+
+            //Стоимость одной позиции - инпут
+            var price_one = $this.closest(".price__counter").parent().find(".price__price").text();
+            //Цена одной позиции (суммарно) - инпут
+            var sum_one = $this.closest(".price__counter").parent().find(".price__total .form_counter__input");
+            //Инпут с итоговой стоимостью за все позиции
+            var total_input = $this.closest(".price__counter").parent().closest(".calculator_form").find(".price_sum_container .form_counter__input");
+            //Все инпуты по всем позициям - итоговые цены
+            var sum_inputs = $this.closest(".price__counter").parent().closest(".calculator_form").find(".price__total .form_counter__input");
+            //Меняем сумму на текущей позиции
+            sum_one.val(count * price_one);
+            sum_one.change();
+            //Подсчитываем сумму за все позиции
+            var sum_total = 0;
+            sum_inputs.each(function (input, val) {
+                sum_total += parseFloat($(val).val());
+            })
+            //И выводим ее
+            total_input.val(sum_total);
+            total_input.change();
+        }
+        //Клик уменьшить кол-во
         $('.form_counter__button.less').click(function () {
-            var price = $(this).closest(".price__counter").parent().find(".price__price").text();
-            var sum = $(this).closest(".price__counter").parent().find(".price__total .form_counter__input");
-            console.log(sum);
-            console.log(price);
+
+            //Уменьшаем кол-во в счетчике по позиции
             var $input = $(this).parent().find('.form_counter__input');
             var count = parseInt($input.val()) - 1;
-            count = count < 1 ? 1 : count;
+            count = count < 0 ? 0 : count;
             $input.val(count);
-            sum.val(count * price);
-            sum.change();
             $input.change();
+            sumCounter($(this), count);
             return false;
         });
+        //Клик увеличить кол-во по позиции
         $('.form_counter__button.more').click(function () {
-            var price = $(this).closest(".price__counter").parent().find(".price__price").text();
-            var sum = $(this).closest(".price__counter").parent().find(".price__total .form_counter__input");
+
             var $input = $(this).parent().find('.form_counter__input');
             var count = parseInt($input.val()) + 1;
-             sum.val(count * price);
-             $input.val(count);
-            sum.change();
+            $input.val(count);
             $input.change();
+            sumCounter($(this), count);
             return false;
         });
+        
+        $(".price_delete__link").on('click', function(e){
+            e.preventDefault();
+            $(".form_counter__input").val(0);
+        })
     });
+
     //Адаптивность прайс листа
     $(function () {
         var title_em = $(".calculator_price__item.title .price__em:eq(0)").text() + ':  ';
@@ -79,20 +106,18 @@ $(document).ready(function () {
         //Добавляет подписи
         var appendTitles = function (first) {
             if (($(window).width() <= '630') & (first)) {
-                console.log('!ok');
                 $(".calculator_price__item:not(.title)").each(function () {
                     $(this).find(".price__em").prepend(title_em);
                     $(this).find(".price__price").prepend(title_price);
                     $(".calculator_price__item.title  .price__counter:eq(0)").clone().prependTo($(this).find(".price__counter"));
                     $(".calculator_price__item.title  .price__total:eq(0)").clone().prependTo($(this).find(".price__total"));
-                   
+
                 });
             }
         }
         //Удаляет подписи
         var deleteTitles = function (first) {
             if (($(window).width() > '630') & (!first)) {
-                console.log('ok!');
                 $(".calculator_price__item:not(.title)").each(function () {
                     var text = $(this).find(".price__em").text();
                     text = text.replace(title_em, '');
@@ -101,7 +126,7 @@ $(document).ready(function () {
                     text = $(this).find(".price__price").text();
                     text = text.replace(title_price, '');
                     $(this).find(".price__price").text(text);
-                    
+
                     $(this).find(".price__counter").remove(".price__counter .price__counter");
                     $(this).find(".price__total").remove(".price__total .price__total");
 
