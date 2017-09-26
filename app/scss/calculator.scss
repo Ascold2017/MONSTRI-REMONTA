@@ -110,6 +110,10 @@
     /* Text style for "ДОПОЛНИТЕЛ" */
     letter-spacing: -0.12px;
     margin: 0 auto;
+    transition: all 0.3s ease;
+    &:hover{
+        transform: scale(1.1);
+    }
 }
 
 .calculator_price {
@@ -298,6 +302,10 @@
     /* Text style for "ОТПРАВИТЬ" */
     letter-spacing: -0.12px;
     text-align: center;
+    transition: all 0.3s ease;
+    &:hover{
+        transform: scale(1.1);
+    }
 }
 
 @import "calculator_media";
