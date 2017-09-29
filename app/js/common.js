@@ -189,8 +189,10 @@ $(document).ready(function () {
             building_input.change();
         })
     });
-    //Cбор данных из прайс листа
+    //Лампочки
     $(function(){
-        
+        $(".header_menu__item").on('click', function(){
+            $(this).find(".header_menu__link")[0].click();
+        })
     })
 });
