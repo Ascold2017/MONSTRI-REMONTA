@@ -5,10 +5,41 @@
     
 }
 
-@media screen and (max-width: 768px){
+@media screen and (max-width: 900px){
     .home__slide {
         width:100%;
         margin: 0 30vw;
     }
 }
+@media screen and (max-width: 768px){
+    .home__slide {
+        width:100%;
+        margin: 0 25vw;
+    }
+}
+@media screen and (max-width: 680px){
+    .home__slide {
+        width:100%;
+        margin: 0 20vw;
+    }
+}
+@media screen and (max-width: 580px){
+    .home__slide {
+        width:100%;
+        margin: 0 15vw;
+    }
+}
+@media screen and (max-width: 490px){
+    .home__slide {
+        width:100%;
+        margin: 0 10vw;
+    }
+}
+@media screen and (max-width: 390px){
+    .home__slide {
+        width:100%;
+        margin: 0 5vw;
+    }
+}
+
 

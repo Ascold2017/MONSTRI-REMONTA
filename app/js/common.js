@@ -8,34 +8,26 @@ $(document).ready(function () {
         $(".mobile_menu_list").slideToggle();
     });
     //Слайдерна главной странице
-    $(".home_slider").slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        //infinite: false,
-        dots: false,
-        arrows: false,
-        //centerMode: true,
-        centerPadding: 60,
-        variableWidth: true,
-        responsive: [
-            {
-                breakpoint: 1000,
-                settings: {
-                    slidesToShow: 2,
-                    centerMode: false,
-                },
-            },
+    $(function () {
+        var first = false;
+        window.onresize = function () {
+            if ($(window).width() <= '900') {
 
-            {
-                breakpoint: 768,
-                settings: {
+                $(".home_slider").slick({
                     slidesToShow: 1,
+                    slidesToScroll: 1,
+                    //infinite: false,
+                    dots: false,
+                    arrows: false,
                     centerMode: true,
-                },
-            },
-
-        ],
+                    centerPadding: 60,
+                    variableWidth: true,
+                    
+                });
+            }
+        }
     });
+
     //Lazy load выпадающий список
     $(function () {
         $(".calculator_price").each(function () {
@@ -76,28 +68,28 @@ $(document).ready(function () {
             total_input.val(sum_total);
             total_input.change();
         }
-        
-        var collectOrder = function(){
+
+        var collectOrder = function () {
             var allItems = $(".calculator_price_list .calculator_price__item");
             var inputForSelectItems = $(".calculator_input__hidden");
-            var selectInfo  =''; 
-            allItems.each(function(){
+            var selectInfo = '';
+            allItems.each(function () {
                 var $this = $(this);
                 var selectCount = $this.find(".form_counter__input").val();
-                
-                if(selectCount>0){
-                    selectInfo+=
-                        $this.find(".price__title").text()+ ' '
-                        +$this.find(".price__counter .form_counter__input").val()
-                        +$this.find(".price__em").text()+ ' '
-                        +$this.find(".price__total .form_counter__input").val()+ '\n';
+
+                if (selectCount > 0) {
+                    selectInfo +=
+                        $this.find(".price__title").text() + ' ' +
+                        $this.find(".price__counter .form_counter__input").val() +
+                        $this.find(".price__em").text() + ' ' +
+                        $this.find(".price__total .form_counter__input").val() + '\n';
                 }
                 console.log(selectInfo);
                 inputForSelectItems.attr('value', selectInfo);
                 inputForSelectItems.change();
             })
         }
-        
+
         $(".form_counter__input").on('keyup', function () {
             $(this).change();
             sumCounter($(this), $(this).val());
@@ -190,9 +182,9 @@ $(document).ready(function () {
         })
     });
     //Лампочки
-    $(function(){
-        $(".header_menu__item").on('click', function(){
+    $(function () {
+        $(".header_menu__item").on('click', function () {
             $(this).find(".header_menu__link")[0].click();
         })
-    })
+    });
 });
