@@ -25,7 +25,7 @@ $(document).ready(function () {
                     centerMode: false,
                 },
             },
-           
+
             {
                 breakpoint: 768,
                 settings: {
@@ -47,7 +47,7 @@ $(document).ready(function () {
         });
     })
 
-    //Счетчик
+    //Счетчик и сбор информации
     $(function () {
 
 
@@ -76,9 +76,32 @@ $(document).ready(function () {
             total_input.val(sum_total);
             total_input.change();
         }
+        
+        var collectOrder = function(){
+            var allItems = $(".calculator_price_list .calculator_price__item");
+            var inputForSelectItems = $(".calculator_input__hidden");
+            var selectInfo  =''; 
+            allItems.each(function(){
+                var $this = $(this);
+                var selectCount = $this.find(".form_counter__input").val();
+                
+                if(selectCount>0){
+                    selectInfo+=
+                        $this.find(".price__title").text()+ ' '
+                        +$this.find(".price__counter .form_counter__input").val()
+                        +$this.find(".price__em").text()+ ' '
+                        +$this.find(".price__total .form_counter__input").val()+ '\n';
+                }
+                console.log(selectInfo);
+                inputForSelectItems.attr('value', selectInfo);
+                inputForSelectItems.change();
+            })
+        }
+        
         $(".form_counter__input").on('keyup', function () {
             $(this).change();
             sumCounter($(this), $(this).val());
+            collectOrder();
         })
         //Клик уменьшить кол-во
         $('.form_counter__button.less').click(function () {
@@ -90,6 +113,7 @@ $(document).ready(function () {
             $input.val(count);
             $input.change();
             sumCounter($(this), count);
+            collectOrder();
             return false;
         });
         //Клик увеличить кол-во по позиции
@@ -99,12 +123,14 @@ $(document).ready(function () {
             $input.val(count);
             $input.change();
             sumCounter($(this), count);
+            collectOrder();
             return false;
         });
 
         $(".price_delete__link").on('click', function (e) {
             e.preventDefault();
             $(".form_counter__input").val(0);
+            collectOrder();
         })
     });
 
@@ -152,4 +178,19 @@ $(document).ready(function () {
         }
     });
 
+    //Выбор дома
+    $(function () {
+        var building_input = $('.bulding_hidden__input');
+        $(".building__item").on('click', function () {
+            $(this).find(".building__img").addClass("active").parent().siblings().find(".building__img").removeClass("active");
+            var value = $(this).find(".building__title").text()
+            building_input.val(value);
+            building_input.attr('value', value);
+            building_input.change();
+        })
+    });
+    //Cбор данных из прайс листа
+    $(function(){
+        
+    })
 });
