@@ -11,13 +11,20 @@ $(document).ready(function () {
     $(".home_slider").slick({
         slidesToShow: 3,
         slidesToScroll: 1,
-        infinite: true,
+        //infinite: false,
         dots: false,
         arrows: false,
-        centerMode: true,
+        //centerMode: true,
         centerPadding: 60,
         variableWidth: true,
         responsive: [
+            {
+                breakpoint: 1000,
+                settings: {
+                    slidesToShow: 2,
+                    centerMode: false,
+                },
+            },
            
             {
                 breakpoint: 768,
@@ -36,7 +43,7 @@ $(document).ready(function () {
         });
         $(".price_show__link").on('click', function (e) {
             e.preventDefault();
-            $(this).closest(".calculator_price").find(".calculator_price__item").addClass("active");
+            $(this).closest(".calculator_price").find(".calculator_price__item").slice(6, this.length).toggleClass("active");
         });
     })
 
