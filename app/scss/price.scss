@@ -1,6 +1,7 @@
-.header{
+.header {
     padding-bottom: 500px;
 }
+
 .price_title {
     color: #ffffff;
     font-family: Arial;
@@ -18,10 +19,11 @@
 }
 
 .price_delete_container {
-	 margin-top: 48px;
+    margin-top: 48px;
 }
 
-.price_show__link, .price_delete__link {
+.price_show__link,
+.price_delete__link {
     background-image: url(img/button_dop.png);
     width: 253px;
     height: 48px;
@@ -38,13 +40,13 @@
     letter-spacing: -0.12px;
     margin: 0 auto;
     transition: all 0.3s ease;
-    &:hover{
+    &:hover {
         transform: scale(1.1);
     }
 }
+
 .price_delete__link {
-	margin-right: 0;
-    
+    margin-right: 0;
 }
 
 .calculator_price {
@@ -75,29 +77,42 @@
             text-align: center;
         }
     }
-    display: none;
+    //display: none;
     flex-wrap: wrap;
     margin-bottom: 4px;
+    transition: opacity 0.3s ease 0s;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
     &.active {
+        opacity: 1;
+        visibility: visible;
+        height: auto;
         display: flex;
     }
 }
-.price__N{
+
+.price__N {
     width: 2%;
 }
-.price__title{
-     width: 38%;
+
+.price__title {
+    width: 38%;
 }
-.price__em{
-     width: 15%;
-}
-.price__price{
+
+.price__em {
     width: 15%;
 }
-.price__counter{
+
+.price__price {
     width: 15%;
 }
-.price__total{
+
+.price__counter {
+    width: 15%;
+}
+
+.price__total {
     width: 15%;
 }
 
@@ -107,7 +122,6 @@
     display: flex;
     padding: 4px 6px 4px 3px;
     box-sizing: border-box;
-    
 }
 
 .form_counter__button {
@@ -121,13 +135,13 @@
     color: #000000;
     letter-spacing: -0.24px;
     outline: 0;
-    &.more{
+    &.more {
         font-size: 20px;
     }
 }
 
 .form_counter__input {
-     width: 92px;
+    width: 92px;
     height: 21px;
     box-shadow: inset 0 0 4px 1px rgba(21, 23, 24, 0.77);
     background-color: #f8eee2;
@@ -226,7 +240,7 @@
     letter-spacing: -0.12px;
     text-align: center;
     transition: all 0.3s ease;
-    &:hover{
+    &:hover {
         transform: scale(1.1);
     }
 }

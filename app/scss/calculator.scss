@@ -146,7 +146,14 @@
      display: none;
     flex-wrap: wrap;
     margin-bottom: 4px;
+     transition: opacity 0.3s ease 0s;
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
     &.active {
+        opacity: 1;
+        visibility: visible;
+        height: auto;
         display: flex;
     }
 }
