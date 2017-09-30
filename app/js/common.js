@@ -9,23 +9,44 @@ $(document).ready(function () {
     });
     //Слайдерна главной странице
     $(function () {
-        var first = false;
-        window.onresize = function () {
-            if ($(window).width() <= '900') {
+        var first = true;
+        var slickI = function () {
 
-                $(".home_slider").slick({
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    //infinite: false,
-                    dots: false,
-                    arrows: false,
-                    centerMode: true,
-                    centerPadding: 60,
-                    variableWidth: true,
-                    
-                });
-            }
+            $(".home_slider").slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                //infinite: false,
+                dots: false,
+                arrows: false,
+                centerMode: true,
+                centerPadding: 60,
+                variableWidth: true
+
+            });
+        };
+
+        if ($(window).width() <= '900') {
+
+            slickI();
+            first = false;
         }
+
+        $(window).resize(function () {
+            if (($(window).width() <= 900) & (first)) {
+                
+                slickI();
+
+                first = false;
+            } else {
+                if ((!first) & ($(document).width() > '900')) {
+                    $(".home_slider").slick('unslick');
+                    first = true;
+                }
+            }
+        });
+
+
+
     });
 
     //Lazy load выпадающий список
