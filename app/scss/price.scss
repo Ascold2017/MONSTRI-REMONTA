@@ -5,7 +5,7 @@
 .price_title {
     color: #ffffff;
     font-family: Arial;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 700;
     line-height: 9.01px;
     /* Text style for "Демонтажны" */
@@ -20,6 +20,7 @@
 
 .price_delete_container {
     margin-top: 48px;
+    text-align: right;
 }
 
 .price_show__link,
@@ -28,12 +29,12 @@
     width: 253px;
     height: 48px;
     background-position: center;
-    background-size: cover;
+    background-size: 100% 100%;
     display: block;
     text-align: center;
     color: #000000;
     font-family: Arial;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 700;
     line-height: 48px;
     /* Text style for "ДОПОЛНИТЕЛ" */
@@ -47,6 +48,9 @@
 
 .price_delete__link {
     margin-right: 0;
+    display: inline-block;
+    width: auto;
+    padding: 0 10px;
 }
 
 .calculator_price {
@@ -59,7 +63,7 @@
     color: #ffffff;
     font-weight: 400;
     font-family: Arial;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 400;
     line-height: 31px;
     /* Text style for "Наименован" */
@@ -68,7 +72,7 @@
         font-weight: 700;
         color: #ffffff;
         font-family: Arial;
-        font-size: 12px;
+        font-size: 15px;
         line-height: 31px;
         /* Text style for "Наименован" */
         letter-spacing: -0.12px;
@@ -170,7 +174,7 @@
 .price_sum__title {
     color: #fefefe;
     font-family: Arial;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 400;
     line-height: 31px;
     /* Text style for "Стоимость" */
@@ -194,7 +198,7 @@
 .sendform__title {
     color: #000000;
     font-family: Arial;
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 400;
     line-height: 18.01px;
     /* Text style for "Заказы на" */
@@ -233,7 +237,7 @@
     outline: 0;
     color: #000000;
     font-family: Arial;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 700;
     line-height: 9.01px;
     /* Text style for "ОТПРАВИТЬ" */
