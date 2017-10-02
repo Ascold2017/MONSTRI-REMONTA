@@ -220,6 +220,27 @@
     border: 0;
     text-align: center;
     margin: 0 auto;
+    &.hidden {
+        display: none;
+    }
+}
+
+.quadrature_counter {
+    div {
+        margin: 20px auto 0;
+    }
+}
+
+.form_counter__checkbox {
+    width: 33px;
+    height: 25px;
+    margin: 0 auto;
+    display: block;
+    background-image: url(img/check.png);
+}
+
+.form_counter__checkbox.check {
+    background-image: url(img/check-active.png);
 }
 
 .price__counter {
@@ -255,7 +276,7 @@
     width: 100%;
     margin: 0 auto;
     padding: 30px 60px 42px;
-    background-size: cover;
+    background-size: 100% 100%;
     box-sizing: border-box;
     background-position: center;
     background-repeat: no-repeat;

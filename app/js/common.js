@@ -64,15 +64,18 @@ $(document).ready(function () {
     $(function () {
         //Инпут с итоговой стоимостью за все позиции
         var total_input = $(".price_sum_container .form_counter__input");
-        //Стоимость кв.м начальная
+        //Стоимость кв.м начальная 
         var perM2 = parseFloat($(".home__price span").text());
+        //Cчетчик квадратуры
+        var quadratureCount = $(".quadrature_counter .form_counter__input");
+
         //Проверям - существует ли
-        if (isNaN(perM2)) {
-            console.log(perM2);
+        if (isNaN(perM2) & isNaN(quadratureCount.val())) {
+        
             total_input.val(0);
 
         } else {
-            total_input.val(perM2);
+            total_input.val(quadratureCount.val() * perM2);
         }
 
         var sumCounter = function ($this, count) {
@@ -98,10 +101,10 @@ $(document).ready(function () {
             sum_inputs.each(function (input, val) {
                 sum_total += parseFloat($(val).val());
             })
-            
+
             //Проверка - существует ли цена начальная
             if (!(isNaN(perM2))) {
-                total_input.val(perM2);
+                total_input.val(perM2*quadratureCount.val());
             } else {
                 total_input.val(0);
             }
@@ -136,7 +139,8 @@ $(document).ready(function () {
             $(this).change();
             sumCounter($(this), $(this).val());
             collectOrder();
-        })
+        });
+
         //Клик уменьшить кол-во
         $('.form_counter__button.less').click(function () {
 
@@ -166,6 +170,21 @@ $(document).ready(function () {
             collectOrder();
             return false;
         });
+
+        $(".form_counter__input.hidden").on('click', function () {
+            var $this = $(this);
+            $this.parent().toggleClass("check");
+            if ($this.is(':checked')) {
+                $this.attr('value', '1');
+            } else {
+                $this.attr('value', '0');
+            }
+            $this.change();
+            console.log($(this).val());
+            sumCounter($(this), $(this).val());
+            collectOrder();
+        });
+
 
         $(".price_delete__link").on('click', function (e) {
             e.preventDefault();
@@ -234,5 +253,9 @@ $(document).ready(function () {
         $(".header_menu__item").on('click', function () {
             $(this).find(".header_menu__link")[0].click();
         })
+    });
+    //Чекбоксы
+    $(function () {
+
     });
 });

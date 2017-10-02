@@ -86,6 +86,15 @@
                             <div class="construction__item" style="width: 60%;"></div>
                         </div>
                         <div class="home__price"><span>3500</span> руб. за м2</div>
+                        <!--Добавил-->
+                        <div class="quadrature_counter">
+                            <div class="form_counter">
+                                <button type="button" class="form_counter__button less">-</button>
+                                <input type="text" class="form_counter__input" value="0">
+                                <button type="button" class="form_counter__button more">+</button>
+                            </div>
+                        </div>
+                        <!---->
                     </div>
                     <div class="calculator_right">
                         <div class="calculator_list_container">
@@ -135,11 +144,13 @@
                                 <span class="price__em">м2</span>
                                 <span class="price__price">1000</span>
                                 <span class="price__counter">
+                                
                                <div class="form_counter">
-                                    <button type="button" class="form_counter__button less">-</button>
-                                    <input type="text" class="form_counter__input" value="0">
-                                    <button type="button" class="form_counter__button more">+</button>
+                                    <label class="form_counter__checkbox">
+                                        <input type="checkbox" id="check1" class="form_counter__input hidden" value="0">
+                                    </label>
                                </div>
+                               
                             </span>
                                 <span class="price__total">
                                 <div class="form_counter">
@@ -150,37 +161,23 @@
                             <li class="calculator_price__item">
                                 <span class="price__title">Сантехника</span>
                                 <span class="price__em">м2</span>
-                                <span class="price__price">2000</span>
+                                <span class="price__price">1000</span>
                                 <span class="price__counter">
                                <div class="form_counter">
-                                    <button type="button" class="form_counter__button less">-</button>
-                                    <input type="text" class="form_counter__input" value="0">
-                                    <button type="button" class="form_counter__button more">+</button>
+                                   <label  class="form_counter__checkbox">
+                                        <input type="checkbox" id="check2" class="form_counter__input hidden" value="0">
+                                        </label>
+                                   
                                </div>
                             </span>
                                 <span class="price__total">
-                                 <div class="form_counter">
+                                <div class="form_counter">
                                     <input type="text" class="form_counter__input" value="0">
                                </div>
                             </span>
                             </li>
-                            <li class="calculator_price__item">
-                                <span class="price__title">Сантехника</span>
-                                <span class="price__em">м2</span>
-                                <span class="price__price">3000</span>
-                                <span class="price__counter">
-                               <div class="form_counter">
-                                    <button type="button" class="form_counter__button less">-</button>
-                                    <input type="text" class="form_counter__input" value="0">
-                                    <button type="button" class="form_counter__button more">+</button>
-                               </div>
-                            </span>
-                                <span class="price__total">
-                                 <div class="form_counter">
-                                    <input type="text" class="form_counter__input" value="0">
-                               </div>
-                            </span>
-                            </li>
+
+
                             <li class="calculator_price__item">
                                 <span class="price__title">Выезд + замеры</span>
                                 <span class="price__em"></span>
