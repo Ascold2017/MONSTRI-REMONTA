@@ -33,7 +33,7 @@ $(document).ready(function () {
 
         $(window).resize(function () {
             if (($(window).width() <= 900) & (first)) {
-                
+
                 slickI();
 
                 first = false;
@@ -62,9 +62,21 @@ $(document).ready(function () {
 
     //Счетчик и сбор информации
     $(function () {
+        //Инпут с итоговой стоимостью за все позиции
+        var total_input = $(".price_sum_container .form_counter__input");
+        //Стоимость кв.м начальная
+        var perM2 = parseFloat($(".home__price span").text());
+        //Проверям - существует ли
+        if (isNaN(perM2)) {
+            console.log(perM2);
+            total_input.val(0);
 
+        } else {
+            total_input.val(perM2);
+        }
 
         var sumCounter = function ($this, count) {
+
 
             //Стоимость одной позиции - инпут
             var price_one = $this.closest(".price__counter").parent().find(".price__price").text();
@@ -73,11 +85,12 @@ $(document).ready(function () {
             price_one = price_one.replace(re, '');
             //Цена одной позиции (суммарно) - инпут
             var sum_one = $this.closest(".price__counter").parent().find(".price__total .form_counter__input");
-            //Инпут с итоговой стоимостью за все позиции
-            var total_input = $this.closest(".price__counter").parent().closest(".calculator_form").find(".price_sum_container .form_counter__input");
+
+
             //Все инпуты по всем позициям - итоговые цены
             var sum_inputs = $this.closest(".price__counter").parent().closest(".calculator_form").find(".price__total .form_counter__input");
             //Меняем сумму на текущей позиции
+
             sum_one.val(count * price_one);
             sum_one.change();
             //Подсчитываем сумму за все позиции
@@ -85,27 +98,35 @@ $(document).ready(function () {
             sum_inputs.each(function (input, val) {
                 sum_total += parseFloat($(val).val());
             })
-            //И выводим ее
-            total_input.val(sum_total);
+            
+            //Проверка - существует ли цена начальная
+            if (!(isNaN(perM2))) {
+                total_input.val(perM2);
+            } else {
+                total_input.val(0);
+            }
+            //И выводим сумму за все позиции
+            total_input.val(parseFloat(total_input.val()) + sum_total);
             total_input.change();
         }
-
+        //Стоимость за все выбранные поля
         var collectOrder = function () {
             var allItems = $(".calculator_price_list .calculator_price__item");
             var inputForSelectItems = $(".calculator_input__hidden");
+
             var selectInfo = '';
             allItems.each(function () {
                 var $this = $(this);
                 var selectCount = $this.find(".form_counter__input").val();
-
+                var first = true;
                 if (selectCount > 0) {
+
                     selectInfo +=
                         $this.find(".price__title").text() + ' ' +
                         $this.find(".price__counter .form_counter__input").val() +
                         $this.find(".price__em").text() + ' ' +
                         $this.find(".price__total .form_counter__input").val() + '\n';
                 }
-                console.log(selectInfo);
                 inputForSelectItems.attr('value', selectInfo);
                 inputForSelectItems.change();
             })
@@ -132,7 +153,13 @@ $(document).ready(function () {
         //Клик увеличить кол-во по позиции
         $('.form_counter__button.more').click(function () {
             var $input = $(this).parent().find('.form_counter__input');
-            var count = parseInt($input.val()) + 1;
+            var count = 0;
+            var currentVal = $input.val();
+            if ((currentVal >= 1) & (!($(this).parent().hasClass("zero-one")))) {
+                count = parseInt(currentVal) + 1;
+            } else {
+                count++;
+            }
             $input.val(count);
             $input.change();
             sumCounter($(this), count);
