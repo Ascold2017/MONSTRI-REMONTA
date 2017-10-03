@@ -103,6 +103,8 @@ $(document).ready(function () {
         $(".price_delete__link").on('click', function (e) {
             e.preventDefault();
             $(".form_counter__input").val(0);
+            $(".calculator_input__hidden").attr('value', '');
+            
         })
     });
 
