@@ -9,7 +9,7 @@ $(document).ready(function () {
         var perM2 = parseFloat($(".home__price span").text());
         //Cчетчик квадратуры
         var quadratureCounter = $(".quadrature_counter .form_counter__input");
-        var quadrature = quadratureCounter.val();
+        var quadrature = parseFloat(quadratureCounter.val());
 
 
         //Подсчитываем данные калькулятора
@@ -35,14 +35,14 @@ $(document).ready(function () {
                         currentSum = parseFloat(price_one);
                         sumForSelctedItems += currentSum;
                         //Записываем стоимость услуги в поле стоимости этой услуги
-                        $this.find(".price__total .form_counter__input").val(currentSum);
+                        //$this.find(".price__total .form_counter__input").val(currentSum);
                     }
                     //Если стоимость вычисляется по квадратуре
                     else {
                         currentSum = parseFloat(price_one) * quadrature;
                         sumForSelctedItems += currentSum;
                         //Записываем стоимость услуги в поле стоимости этой услуги
-                        $this.find(".price__total .form_counter__input").val(currentSum);
+                        //$this.find(".price__total .form_counter__input").val(currentSum);
                     }
 
                     selectInfo +=
@@ -50,10 +50,9 @@ $(document).ready(function () {
                         quadrature +
                         $this.find(".price__em").text() + ' ' +
                         $this.find(".price__total .form_counter__input").val() + '\n';
-                }
-                else{
+                } else {
                     //Записываем стоимость услуги в поле стоимости этой услуги
-                        $this.find(".price__total .form_counter__input").val(0);
+                    // $this.find(".price__total .form_counter__input").val(0);
                 }
             });
             total_input.val(sumForSelctedItems + quadrature * perM2);
@@ -62,7 +61,10 @@ $(document).ready(function () {
             //console.log();
         }
         quadratureCounter.on('change', function () {
-            quadrature = $(this).val();
+            var value = $(this).val();
+            //заменяем , на . (например 0,5 на 0.5)
+            value = value.replace(/\,/, ".");
+            quadrature = parseFloat(value);
             sumCounter();
         });
         $(".price__counter .form_counter__input").each(function () {

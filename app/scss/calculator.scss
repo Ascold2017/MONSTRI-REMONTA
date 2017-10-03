@@ -172,7 +172,7 @@
 }
 
 .price__em {
-    width: 15%;
+    width: 30%;
 }
 
 .price__price {
@@ -181,10 +181,10 @@
 
 .price__counter {
     width: 15%;
-}
-
-.price__total {
-    width: 15%;
+    text-align: center;
+    .form_counter {
+        margin: 0 auto;
+    }
 }
 
 .form_counter {
@@ -255,8 +255,14 @@
 .price_sum_container {
     display: flex;
     justify-content: flex-end;
-    margin-right: 30px;
     margin-top: 39px;
+}
+
+.price_sum__counter {
+    width: 17%;
+    .form_counter {
+        margin: 0 auto;
+    }
 }
 
 .price_sum__title {
@@ -268,6 +274,8 @@
     /* Text style for "Стоимость" */
     letter-spacing: -0.12px;
     padding-right: 9px;
+    width: 85%;
+    text-align: right;
 }
 
 .calculator_sendform {
@@ -340,6 +348,17 @@
 
 .calculator_input__hidden {
     display: none;
+}
+
+.quadrature__title {
+    color: #fff;
+    font-weight: 400;
+    font-family: Arial;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 31px;
+    letter-spacing: -.12px;
+    text-align: center;
 }
 
 @import "calculator_media";
