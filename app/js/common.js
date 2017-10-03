@@ -60,98 +60,21 @@ $(document).ready(function () {
         });
     })
 
-    //Счетчик и сбор информации
+    //Счетчик 
     $(function () {
-        //Инпут с итоговой стоимостью за все позиции
-        var total_input = $(".price_sum_container .form_counter__input");
-        //Стоимость кв.м начальная 
-        var perM2 = parseFloat($(".home__price span").text());
-        //Cчетчик квадратуры
-        var quadratureCount = $(".quadrature_counter .form_counter__input");
-
-        //Проверям - существует ли
-        if (isNaN(perM2) & isNaN(quadratureCount.val())) {
-        
-            total_input.val(0);
-
-        } else {
-            total_input.val(quadratureCount.val() * perM2);
-        }
-
-        var sumCounter = function ($this, count) {
-
-
-            //Стоимость одной позиции - инпут
-            var price_one = $this.closest(".price__counter").parent().find(".price__price").text();
-            //Вычленяем число из текста с помощью регулярных выражений
-            var re = /\D+/ig;
-            price_one = price_one.replace(re, '');
-            //Цена одной позиции (суммарно) - инпут
-            var sum_one = $this.closest(".price__counter").parent().find(".price__total .form_counter__input");
-
-
-            //Все инпуты по всем позициям - итоговые цены
-            var sum_inputs = $this.closest(".price__counter").parent().closest(".calculator_form").find(".price__total .form_counter__input");
-            //Меняем сумму на текущей позиции
-
-            sum_one.val(count * price_one);
-            sum_one.change();
-            //Подсчитываем сумму за все позиции
-            var sum_total = 0;
-            sum_inputs.each(function (input, val) {
-                sum_total += parseFloat($(val).val());
-            })
-
-            //Проверка - существует ли цена начальная
-            if (!(isNaN(perM2))) {
-                total_input.val(perM2*quadratureCount.val());
-            } else {
-                total_input.val(0);
-            }
-            //И выводим сумму за все позиции
-            total_input.val(parseFloat(total_input.val()) + sum_total);
-            total_input.change();
-        }
-        //Стоимость за все выбранные поля
-        var collectOrder = function () {
-            var allItems = $(".calculator_price_list .calculator_price__item");
-            var inputForSelectItems = $(".calculator_input__hidden");
-
-            var selectInfo = '';
-            allItems.each(function () {
-                var $this = $(this);
-                var selectCount = $this.find(".form_counter__input").val();
-                var first = true;
-                if (selectCount > 0) {
-
-                    selectInfo +=
-                        $this.find(".price__title").text() + ' ' +
-                        $this.find(".price__counter .form_counter__input").val() +
-                        $this.find(".price__em").text() + ' ' +
-                        $this.find(".price__total .form_counter__input").val() + '\n';
-                }
-                inputForSelectItems.attr('value', selectInfo);
-                inputForSelectItems.change();
-            })
-        }
 
         $(".form_counter__input").on('keyup', function () {
             $(this).change();
-            sumCounter($(this), $(this).val());
-            collectOrder();
         });
 
         //Клик уменьшить кол-во
         $('.form_counter__button.less').click(function () {
-
             //Уменьшаем кол-во в счетчике по позиции
             var $input = $(this).parent().find('.form_counter__input');
             var count = parseInt($input.val()) - 1;
             count = count < 0 ? 0 : count;
             $input.val(count);
             $input.change();
-            sumCounter($(this), count);
-            collectOrder();
             return false;
         });
         //Клик увеличить кол-во по позиции
@@ -159,15 +82,9 @@ $(document).ready(function () {
             var $input = $(this).parent().find('.form_counter__input');
             var count = 0;
             var currentVal = $input.val();
-            if ((currentVal >= 1) & (!($(this).parent().hasClass("zero-one")))) {
-                count = parseInt(currentVal) + 1;
-            } else {
-                count++;
-            }
+            count = parseInt(currentVal) + 1;
             $input.val(count);
             $input.change();
-            sumCounter($(this), count);
-            collectOrder();
             return false;
         });
 
@@ -180,16 +97,12 @@ $(document).ready(function () {
                 $this.attr('value', '0');
             }
             $this.change();
-            console.log($(this).val());
-            sumCounter($(this), $(this).val());
-            collectOrder();
         });
 
 
         $(".price_delete__link").on('click', function (e) {
             e.preventDefault();
             $(".form_counter__input").val(0);
-            collectOrder();
         })
     });
 
@@ -254,8 +167,5 @@ $(document).ready(function () {
             $(this).find(".header_menu__link")[0].click();
         })
     });
-    //Чекбоксы
-    $(function () {
-
-    });
+   
 });

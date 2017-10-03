@@ -22,11 +22,27 @@ var     htmlmin        = require('gulp-htmlmin');
 // Скрипты проекта
 
 gulp.task('common-js', function() {
-	 gulp.src([
+	 var commonJs = gulp.src([
 		'app/js/common.js',
 		])
     .pipe(plumber())
 	.pipe(concat('common.min.js'))
+	.pipe(uglify())
+	.pipe(gulp.dest('app/js'));
+    
+    var calculatorJs = gulp.src([
+		'app/js/calculator.js',
+		])
+    .pipe(plumber())
+	.pipe(concat('calculator.min.js'))
+	.pipe(uglify())
+	.pipe(gulp.dest('app/js'));
+    
+    var priceJs = gulp.src([
+		'app/js/price.js',
+		])
+    .pipe(plumber())
+	.pipe(concat('price.min.js'))
 	.pipe(uglify())
 	.pipe(gulp.dest('app/js'));
 });
@@ -66,7 +82,7 @@ gulp.task('sass', function() {
 
 gulp.task('watch', ['sass', 'js', 'browser-sync'], function() {
 	gulp.watch('app/scss/**/*.scss', ['sass']);
-	gulp.watch(['libs/**/*.js', 'app/js/common.js'], ['js']);
+	gulp.watch(['libs/**/*.js', 'app/js/common.js', 'app/js/calculator.js','app/js/price.js'], ['js']);
 	gulp.watch('app/*.html').on('change', browserSync.reload); //Перезапуск browserSynс
   
 });
@@ -98,6 +114,8 @@ gulp.task('build', ['removedist', 'imagemin', 'sass', 'js'], function() {
     
     var buildСommJs = gulp.src([
 		'app/js/common.min.js',
+        'app/js/calculator.min.js',
+        'app/js/price.min.js',
 		]).pipe(gulp.dest('dist/js'));
 
 	var buildFonts = gulp.src([
