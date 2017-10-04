@@ -12,6 +12,9 @@
     margin-left: 50px;
 }
 
+.header{
+    padding-bottom: 748px;
+}
 .calculator_list_container {
     background-image: url(img/pricewood.png);
     padding: 15px 58px 17px;
@@ -19,6 +22,7 @@
     bottom: 0;
     left: 0;
     right: 0;
+    background-size: 100% 100%;
 }
 
 .calculator_list:last-child .calculator__item:last-child {
@@ -360,5 +364,7 @@
     letter-spacing: -.12px;
     text-align: center;
 }
+
+
 
 @import "calculator_media";

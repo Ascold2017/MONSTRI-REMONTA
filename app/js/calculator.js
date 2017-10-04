@@ -47,15 +47,15 @@ $(document).ready(function () {
 
                     selectInfo +=
                         $this.find(".price__title").text() + ' ' +
-                        quadrature +
-                        $this.find(".price__em").text() + ' ' +
-                        $this.find(".price__total .form_counter__input").val() + '\n';
+                        quadrature + ' ' +
+                        $this.find(".price__em").text() + ' ';
                 } else {
                     //Записываем стоимость услуги в поле стоимости этой услуги
                     // $this.find(".price__total .form_counter__input").val(0);
                 }
             });
             total_input.val(sumForSelctedItems + quadrature * perM2);
+            selectInfo+='Итого: ' + parseFloat(sumForSelctedItems + quadrature * perM2) +'\n';
             inputForSelectItems.attr('value', selectInfo);
             inputForSelectItems.change();
             //console.log();

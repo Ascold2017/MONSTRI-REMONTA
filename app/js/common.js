@@ -17,11 +17,12 @@ $(document).ready(function () {
                 slidesToScroll: 1,
                 //infinite: false,
                 dots: false,
-                arrows: false,
+                arrows:true,
                 centerMode: true,
                 centerPadding: 60,
-                variableWidth: true
-
+                variableWidth: true,
+                prevArrow: '<button class="arrowPrev"></button>',
+                nextArrow:'<button class="arrowNext"></button>',
             });
         };
 

@@ -35,10 +35,13 @@
         align-items: center;
     }
     .calculator_right {
-        margin-top: 410px;
+        margin-top: 30px;
         margin-left: 0;
         width: 100%;
         max-width: 517px;
+    }
+    .calculator_list_container {
+        position: static;
     }
 }
 
@@ -94,8 +97,6 @@
     .calculator_left {
         width: 100%;
         .home__img {
-            width: 100%;
-            top: auto;
             bottom: 55px;
         }
     }
