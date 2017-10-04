@@ -22,19 +22,41 @@
     &.third {
         width: 30%;
     }
+    &.active {
+        .building__title,
+        .building__price {
+            color: #ffff00;
+            text-shadow: 1px 1px 50px #ffff00;
+            animation-name: pulse;
+            animation-duration: 0.3s;
+            animation-fill-mode: both;
+        }
+    }
+}
+
+@keyframes pulse {
+    from {
+        transform: scale3d(1, 1, 1);
+    }
+    50% {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    to {
+        transform: scale3d(1, 1, 1);
+    }
 }
 
 .building__img {
     position: absolute;
     bottom: 60px;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
+    // transform: translateX(-50%);
     display: block;
     width: 100%;
     transition: all 0.5s ease;
     &:hover,
     &.active {
-        transform: translateX(-50%) translateY(-10%);
+        transform: translateY(-10%);
     }
 }
 

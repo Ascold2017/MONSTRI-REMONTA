@@ -157,7 +157,7 @@ $(document).ready(function () {
     $(function () {
         var building_input = $('.bulding_hidden__input');
         $(".building__item").on('click', function () {
-            $(this).find(".building__img").addClass("active").parent().siblings().find(".building__img").removeClass("active");
+            $(this).addClass("active").find(".building__img").addClass("active").parent().siblings().removeClass("active").find(".building__img").removeClass("active");
             var value = $(this).find(".building__title").text()
             building_input.val(value);
             building_input.attr('value', value);

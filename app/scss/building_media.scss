@@ -9,18 +9,21 @@
         width: 70%;
         padding-top: 30px;
     }
-    .building__img {
-	position: static;
+    .building__img{
+        position: static;
         transform: none;
-        &:hover{
-            transform: none;
+        &:hover {
+            transform: translateY(-20px);
         }
-}
+        &.active{
+            transform: translateY(-20px);
+        }
+    }
 }
 
 @media screen and (max-width:600px) {
     .building_sendform {
-	background-size: 100% 100%;
+        background-size: 100% 100%;
         width: 90%;
-}
+    }
 }
