@@ -200,6 +200,9 @@
 }
 
 .form_counter__button {
+    display: block;
+    width: 22px;
+    box-sizing: border-box;
     background: none;
     border: 0;
     font-family: Arial;
